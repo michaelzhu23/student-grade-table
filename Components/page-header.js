@@ -3,6 +3,7 @@ class PageHeader {
     this.headerElement = headerElement;
   }
   updateAverage(newAverage) {
-    console.log(newAverage);
+    var averageGradeBadge = document.querySelector("span.badge");
+    averageGradeBadge.textContent = newAverage;
   }
 }
