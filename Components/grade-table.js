@@ -5,13 +5,13 @@ class GradeTable{
   updateGrades(grades){
     var tbody = this.tableElement.querySelector("tbody");
     tbody.innerHTML = "";
-    for(var i = 0; i < grades.length; i++){
+    for(var updateIndex = 0; updateIndex < grades.length; updateIndex++){
       var tdName = document.createElement("td");
-      tdName.textContent = grades[i].name;
+      tdName.textContent = grades[updateIndex].name;
       var tdCourse = document.createElement("td");
-      tdCourse.textContent = grades[i].course;
+      tdCourse.textContent = grades[updateIndex].course;
       var tdGrade = document.createElement("td");
-      tdGrade.textContent = grades[i].grade;
+      tdGrade.textContent = grades[updateIndex].grade;
       var trow = document.createElement("tr");
       trow.append(tdName, tdCourse, tdGrade);
       tbody.append(trow);
