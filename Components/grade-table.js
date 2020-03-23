@@ -6,15 +6,16 @@ class GradeTable{
     var tbody = this.tableElement.querySelector("tbody");
     tbody.innerHTML = "";
     for(var updateIndex = 0; updateIndex < grades.length; updateIndex++){
-      var tdName = document.createElement("td");
-      tdName.textContent = grades[updateIndex].name;
-      var tdCourse = document.createElement("td");
-      tdCourse.textContent = grades[updateIndex].course;
-      var tdGrade = document.createElement("td");
-      tdGrade.textContent = grades[updateIndex].grade;
-      var trow = document.createElement("tr");
-      trow.append(tdName, tdCourse, tdGrade);
-      tbody.append(trow);
+      // var tdName = document.createElement("td");
+      // tdName.textContent = grades[updateIndex].name;
+      // var tdCourse = document.createElement("td");
+      // tdCourse.textContent = grades[updateIndex].course;
+      // var tdGrade = document.createElement("td");
+      // tdGrade.textContent = grades[updateIndex].grade;
+      // var trow = document.createElement("tr");
+      // trow.append(tdName, tdCourse, tdGrade);
+      // tbody.append(trow);
+      this.renderGradeRow(grades[updateIndex], this.deleteGrade);
     }
   }
   onDeleteClick(deleteGrade){
