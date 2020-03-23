@@ -22,6 +22,9 @@ class App{
       sum += grades[averageIndex].grade;
     }
     var averageGrade = sum / grades.length;
+    if(isNaN(averageGrade) === true){
+      averageGrade = 0;
+    }
     this.pageHeader.updateAverage(averageGrade);
   }
   getGrades(){
