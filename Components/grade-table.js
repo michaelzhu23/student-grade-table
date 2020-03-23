@@ -7,16 +7,8 @@ class GradeTable{
     var tbody = this.tableElement.querySelector("tbody");
     tbody.innerHTML = "";
     for(var updateIndex = 0; updateIndex < grades.length; updateIndex++){
-      // var tdName = document.createElement("td");
-      // tdName.textContent = grades[updateIndex].name;
-      // var tdCourse = document.createElement("td");
-      // tdCourse.textContent = grades[updateIndex].course;
-      // var tdGrade = document.createElement("td");
-      // tdGrade.textContent = grades[updateIndex].grade;
-      // var trow = document.createElement("tr");
-      // trow.append(tdName, tdCourse, tdGrade);
-      // tbody.append(trow);
-      this.renderGradeRow(grades[updateIndex], this.deleteGrade);
+      var trowRender = this.renderGradeRow(grades[updateIndex], this.deleteGrade);
+      tbody.appendChild(trowRender);
     }
   }
   onDeleteClick(deleteGrade){
@@ -24,19 +16,25 @@ class GradeTable{
   }
   renderGradeRow(data, deleteGrade){
     var trowRender = document.createElement("tr");
-    for(var key in data){
-      var tdRender = document.createElement("td");
-      tdRender.textContent = data[key];
-      trowRender.appendChild(tdRender);
-    }
-    var tdButton = document.createElement("td");
-    var button = document.createElement("button");
-    button.setAttribute("type", "button");
-    button.classList.add("btn", "btn-danger");
-    button.textContent = "DELETE";
-    tdButton.appendChild(button);
-    trowRender.appendChild(tdButton);
-    button.addEventListener("click", deleteGrade(data.id));
+    var tdNameRender = document.createElement("td");
+    tdNameRender.textContent = data.name;
+    trowRender.appendChild(tdNameRender);
+    var tdCourseRender = document.createElement("td");
+    tdCourseRender.textContent = data.course;
+    trowRender.appendChild(tdCourseRender);
+    var tdGradeRender = document.createElement("td");
+    tdGradeRender.textContent = data.grade;
+    trowRender.appendChild(tdGradeRender);
+    var tdButtonRender = document.createElement("td");
+    var deleteButton = document.createElement("button");
+    deleteButton.setAttribute("type", "button");
+    deleteButton.classList.add("btn", "btn-danger");
+    deleteButton.textContent = "DELETE";
+    tdButtonRender.appendChild(deleteButton);
+    trowRender.appendChild(tdButtonRender);
+    deleteButton.addEventListener("click", function(){
+      deleteGrade(data.id)
+    });
     return trowRender;
   }
 }
