@@ -15,6 +15,5 @@ class GradeForm {
     var grade = formData.get("grade");
     this.createGrade(name, course, grade);
     event.target.reset();
-    console.log("hi");
   }
 }
